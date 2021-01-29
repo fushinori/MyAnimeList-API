@@ -1,7 +1,7 @@
 import 'package:myanimelist_api/myanimelist_api.dart';
 
 void main() async {
-  // Intiialize client
+  // Initialize client
   var client = Client("YOUR_ACCESS_TOKEN");
 
   // Search for anime
