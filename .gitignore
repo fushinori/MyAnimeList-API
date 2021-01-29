@@ -1,0 +1,13 @@
+# VSCode
+.vscode
+
+# Dart and pub stuff
+.dart_tool/
+.packages
+build/
+
+# Not application package
+pubspec.lock
+
+# Dartdoc
+doc/
