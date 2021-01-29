@@ -58,8 +58,8 @@ class Client {
     "start_season",
     "broadcast",
     "source",
-    "average_episode_duration"
-        "rating",
+    "average_episode_duration",
+    "rating",
     "pictures",
     "background",
     "related_anime",
