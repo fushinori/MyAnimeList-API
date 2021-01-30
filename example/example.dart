@@ -13,7 +13,8 @@ void main() async {
   // Get complete objects using id
   var anime = await client.getAnimeDetails(16498);
   assert(anime.title == "Shingeki no Kyojin");
-  assert(anime.mainPicture.large == "https://api-cdn.myanimelist.net/images/anime/10/47347l.jpg");
+  assert(anime.mainPicture.large ==
+      "https://api-cdn.myanimelist.net/images/anime/10/47347l.jpg");
   assert(anime.genres[0].name == "Action");
   assert(anime.createdAt == DateTime.parse("2012-12-05T12:03:21.000Z"));
 }
