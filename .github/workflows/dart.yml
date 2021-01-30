@@ -28,5 +28,5 @@ jobs:
 
       - name: Run tests
         env:
-            MAL_ACCESS_TOKEN = ${{ secrets.MAL_ACCESS_TOKEN }}
+            MAL_ACCESS_TOKEN: ${{ secrets.MAL_ACCESS_TOKEN }}
         run: dart test
