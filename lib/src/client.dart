@@ -140,9 +140,10 @@ class Client {
     _handler = RequestHandler(baseUrl, _headers);
   }
 
-  Future<List<Node>> searchAnime(String keyword, {int limit = 10}) async {
+  Future<List<Node>> searchAnime(String keyword,
+      {int limit = 10, int offset = 0}) async {
     var uri = "anime";
-    var params = {'q': keyword, 'limit': '$limit'};
+    var params = {'q': keyword, 'limit': '$limit', 'offset': '$offset'};
     var json = await _handler.call(uri: uri, params: params);
     var response = GenericResponse.fromJson(json);
     return response.data.map((e) => e.node).toList();
@@ -194,9 +195,10 @@ class Client {
     return response.data.map((e) => e.node).toList();
   }
 
-  Future<List<Node>> searchManga(String keyword, {int limit = 10}) async {
+  Future<List<Node>> searchManga(String keyword,
+      {int limit = 10, int offset = 0}) async {
     var uri = "manga";
-    var params = {'q': keyword, 'limit': '$limit'};
+    var params = {'q': keyword, 'limit': '$limit', 'offset': '$offset'};
     var json = await _handler.call(uri: uri, params: params);
     var response = GenericResponse.fromJson(json);
     return response.data.map((e) => e.node).toList();
