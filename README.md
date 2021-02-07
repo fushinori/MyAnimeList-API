@@ -39,6 +39,17 @@ assert(anime.genres[0].name == "Action");
 assert(anime.createdAt == DateTime.parse("2012-12-05T12:03:21.000Z"));
 ```
 
+• Use templates for updating lists.
+
+```dart
+var template = AnimeListTemplate(
+  status: "completed",
+  score: 9,
+  numWatchedEpisodes: 13
+);
+await client.updateAnimeList(30015, template);
+```
+
 ## TODO
 - [ ] User anime list
 - [ ] Forum info
