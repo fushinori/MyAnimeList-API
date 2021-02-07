@@ -34,7 +34,7 @@ class RequestHandler {
       {String uri,
       String method = "get",
       Map<String, String> params,
-      Map<String, dynamic> body}) async {
+      Map<String, String> body}) async {
     var finalUrl = "$baseUrl$uri${Uri(queryParameters: params)}";
     if (method == "get") {
       var response = await _client.get(finalUrl, headers: headers);
@@ -51,7 +51,7 @@ class RequestHandler {
           await _client.patch(finalUrl, headers: headers, body: body);
       var json = jsonDecode(response.body);
       if (response.statusCode == 200) {
-        return json;
+        return true;
       } else {
         var message = json["message"] ?? "";
         var error = json["error"] ?? "";
@@ -59,7 +59,15 @@ class RequestHandler {
       }
     } else if (method == "delete") {
       var response = await _client.delete(finalUrl, headers: headers);
-      return response.statusCode;
+      var json = jsonDecode(response.body);
+      var code = response.statusCode;
+      if ({404, 200}.contains(code)) {
+        return code;
+      } else {
+        var message = json["message"] ?? "";
+        var error = json["error"] ?? "";
+        throw ApiException(code, message, error);
+      }
     }
   }
 }
