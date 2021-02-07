@@ -51,7 +51,7 @@ await client.updateAnimeList(30015, template);
 ```
 
 ## TODO
-- [ ] User anime list
+- [X] User anime list
 - [ ] Forum info
-- [ ] User manga list
+- [X] User manga list
 - [ ] User info
