@@ -113,4 +113,44 @@ void main() {
       }, throwsArgumentError);
     });
   });
+
+  group("[Anime list] ", () {
+    test("Update anime list", () async {
+      var list = AnimeListTemplate(
+          status: "completed", score: 6, numWatchedEpisodes: 25);
+      var response = await client.updateAnimeList(69, list);
+      expect(response, true);
+    });
+
+    test("Delete from anime list", () async {
+      var response = await client.deleteAnimeFromList(69);
+      expect(response, true);
+    });
+
+    test("Get user anime list", () async {
+      var anime = (await client.getAnimeList())[0];
+      expect(anime.node.title, "Kimi no Na wa.");
+      expect(anime.listStatus.score, 9);
+    });
+  });
+
+  group("[Manga list]", () {
+    test("Update manga list", () async {
+      var list =
+          MangaListTemplate(status: "dropped", score: 3, numChaptersRead: 1);
+      var response = await client.updateMangaList(69, list);
+      expect(response, true);
+    });
+
+    test("Delete from manga list", () async {
+      var response = await client.deleteMangaFromList(69);
+      expect(response, true);
+    });
+
+    test("Get user manga list", () async {
+      var anime = (await client.getMangaList())[0];
+      expect(anime.node.title, "ReLIFE");
+      expect(anime.listStatus.score, 10);
+    });
+  });
 }
