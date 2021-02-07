@@ -29,12 +29,13 @@ class MyMangaListStatus {
   final bool isRereading;
   final int numVolumesRead;
   final int numChaptersRead;
+  final int score;
 
   @JsonKey(fromJson: stringToDate)
   final DateTime updatedAt;
 
   MyMangaListStatus(this.status, this.isRereading, this.numVolumesRead,
-      this.numChaptersRead, this.updatedAt);
+      this.score, this.numChaptersRead, this.updatedAt);
 
   factory MyMangaListStatus.fromJson(Map<String, dynamic> json) {
     return _$MyMangaListStatusFromJson(json);

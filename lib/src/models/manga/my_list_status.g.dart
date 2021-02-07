@@ -11,6 +11,7 @@ MyMangaListStatus _$MyMangaListStatusFromJson(Map<String, dynamic> json) {
     json['status'] as String,
     json['is_rereading'] as bool,
     json['num_volumes_read'] as int,
+    json['score'] as int,
     json['num_chapters_read'] as int,
     stringToDate(json['updated_at'] as String),
   );
