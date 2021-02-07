@@ -17,7 +17,7 @@
 
 /// Template for updating manga list.
 class MangaListTemplate {
-  /// Possible values: 'reading', 'completed', 'on_hold', 'dropped', 
+  /// Possible values: 'reading', 'completed', 'on_hold', 'dropped',
   /// plan_to_read'
   final String status;
 
@@ -48,7 +48,7 @@ class MangaListTemplate {
       this.rereadValue = 0,
       this.tags = "",
       this.comments = ""});
-  
+
   /// Returns map for encoding as form fields.
   Map<String, String> toMap() {
     return {
