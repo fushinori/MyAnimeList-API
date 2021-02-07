@@ -144,10 +144,8 @@ class Client {
     var uri = "anime";
     var params = {'q': keyword, 'limit': '$limit'};
     var json = await _handler.call(uri: uri, params: params);
-    var nodeList = <Node>[];
     var response = GenericResponse.fromJson(json);
-    nodeList.addAll(response.data.map((e) => e.node));
-    return nodeList;
+    return response.data.map((e) => e.node).toList();
   }
 
   Future<Anime> getAnimeDetails(int id) async {
@@ -169,10 +167,8 @@ class Client {
       'offset': '$offset'
     };
     var json = await _handler.call(uri: uri, params: params);
-    var nodeList = <RankedNode>[];
     var response = RankedResponse.fromJson(json);
-    nodeList.addAll(response.data);
-    return nodeList;
+    return response.data;
   }
 
   Future<List<Node>> getSeasonalAnime(int year, String season,
@@ -186,30 +182,24 @@ class Client {
     var uri = "anime/season/$year/$season";
     var params = {'sort': sort, 'limit': '$limit', 'offset': '$offset'};
     var json = await _handler.call(uri: uri, params: params);
-    var nodeList = <Node>[];
     var response = GenericResponse.fromJson(json);
-    nodeList.addAll(response.data.map((e) => e.node));
-    return nodeList;
+    return response.data.map((e) => e.node).toList();
   }
 
   Future<List<Node>> getSuggestedAnime({int limit = 10, int offset = 0}) async {
     var uri = "anime/suggestions";
     var params = {'limit': '$limit', 'offset': '$offset'};
     var json = await _handler.call(uri: uri, params: params);
-    var nodeList = <Node>[];
     var response = GenericResponse.fromJson(json);
-    nodeList.addAll(response.data.map((e) => e.node));
-    return nodeList;
+    return response.data.map((e) => e.node).toList();
   }
 
   Future<List<Node>> searchManga(String keyword, {int limit = 10}) async {
     var uri = "manga";
     var params = {'q': keyword, 'limit': '$limit'};
     var json = await _handler.call(uri: uri, params: params);
-    var nodeList = <Node>[];
     var response = GenericResponse.fromJson(json);
-    nodeList.addAll(response.data.map((e) => e.node));
-    return nodeList;
+    return response.data.map((e) => e.node).toList();
   }
 
   Future<Manga> getMangaDetails(int id) async {
@@ -231,10 +221,8 @@ class Client {
       'offset': '$offset'
     };
     var json = await _handler.call(uri: uri, params: params);
-    var nodeList = <RankedNode>[];
     var response = RankedResponse.fromJson(json);
-    nodeList.addAll(response.data);
-    return nodeList;
+    return response.data;
   }
 
   Future<bool> updateAnimeList(int id, AnimeListTemplate list) async {
@@ -265,10 +253,8 @@ class Client {
       'fields': 'list_status'
     };
     var json = await _handler.call(uri: uri, params: params);
-    var animeList = <AnimeList>[];
     var response = AnimeListResponse.fromJson(json);
-    animeList.addAll(response.data);
-    return animeList;
+    return response.data;
   }
 
   Future<bool> updateMangaList(int id, MangaListTemplate list) async {
@@ -299,9 +285,7 @@ class Client {
       'fields': 'list_status'
     };
     var json = await _handler.call(uri: uri, params: params);
-    var mangaList = <MangaList>[];
     var response = MangaListResponse.fromJson(json);
-    mangaList.addAll(response.data);
-    return mangaList;
+    return response.data;
   }
 }
