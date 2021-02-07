@@ -140,6 +140,9 @@ class Client {
     _handler = RequestHandler(baseUrl, _headers);
   }
 
+  /// Returns list of [Node] objects based on [keyword].
+  /// 
+  /// Max [limit] is 100.
   Future<List<Node>> searchAnime(String keyword,
       {int limit = 10, int offset = 0}) async {
     var uri = "anime";
@@ -149,6 +152,7 @@ class Client {
     return response.data.map((e) => e.node).toList();
   }
 
+  /// Returns complete [Anime] object.
   Future<Anime> getAnimeDetails(int id) async {
     var uri = "anime/$id";
     var params = {'fields': _animeFields.join(",")};
@@ -156,6 +160,15 @@ class Client {
     return Anime.fromJson(json);
   }
 
+  /// Returns list of [RankedNode] objects.
+  /// 
+  /// Valid values for [rankingType] include:
+  /// 'all', 'airing', 'upcoming', 'tv', 'ova', 'movie',
+  /// 'special', 'bypopularity' and 'favorite'.
+  /// 
+  /// Max [limit] is 500.
+  /// 
+  /// Throws [ArgumentError] if [rankingType] is invalid.
   Future<List<RankedNode>> getAnimeRanking(
       {String rankingType = "all", int limit = 10, int offset = 0}) async {
     var uri = "anime/ranking";
@@ -172,6 +185,15 @@ class Client {
     return response.data;
   }
 
+  /// Returns list of [Node] objects based on [year] and [season].
+  /// 
+  /// Valid values for [season] include:
+  /// 'winter', 'summer', 'spring' and 'fall'.
+  /// 
+  /// Valid values for [sort] include:
+  /// 'anime_score' and 'anime_num_list_users'.
+  /// 
+  /// Throws [ArgumentError] if [season] or [sort] is invalid.
   Future<List<Node>> getSeasonalAnime(int year, String season,
       {String sort = "anime_score", int limit = 10, int offset = 0}) async {
     if (!_seasons.contains(season.toLowerCase())) {
@@ -187,6 +209,7 @@ class Client {
     return response.data.map((e) => e.node).toList();
   }
 
+  /// Returns list of suggested [Node] objects for the authorized user.
   Future<List<Node>> getSuggestedAnime({int limit = 10, int offset = 0}) async {
     var uri = "anime/suggestions";
     var params = {'limit': '$limit', 'offset': '$offset'};
@@ -195,6 +218,9 @@ class Client {
     return response.data.map((e) => e.node).toList();
   }
 
+  /// Returns list of [Node] objects based on [keyword].
+  /// 
+  /// Max [limit] is 100.
   Future<List<Node>> searchManga(String keyword,
       {int limit = 10, int offset = 0}) async {
     var uri = "manga";
@@ -204,6 +230,7 @@ class Client {
     return response.data.map((e) => e.node).toList();
   }
 
+  /// Returns complete [Manga] object.
   Future<Manga> getMangaDetails(int id) async {
     var uri = "manga/$id";
     var params = {'fields': _mangaFields.join(",")};
@@ -211,6 +238,15 @@ class Client {
     return Manga.fromJson(json);
   }
 
+  /// Returns list of [RankedNode] objects.
+  /// 
+  /// Valid values for [rankingType] include:
+  /// 'all', 'manga', 'oneshots', 'doujin', 'lightnovels',
+  /// 'novels', 'manhua', 'manhwa', 'bypopularity' and 'favorite'.
+  /// 
+  /// Max [limit] is 500.
+  /// 
+  /// Throws [ArgumentError] if [rankingType] is invalid.
   Future<List<RankedNode>> getMangaRanking(
       {String rankingType = "all", int limit = 10, int offset = 0}) async {
     var uri = "manga/ranking";
@@ -227,6 +263,9 @@ class Client {
     return response.data;
   }
 
+  /// Updates anime list with anime of [id].
+  /// 
+  /// Returns [true] on success.
   Future<bool> updateAnimeList(int id, AnimeListTemplate list) async {
     var uri = "anime/$id/my_list_status";
     var result =
@@ -234,12 +273,30 @@ class Client {
     return result;
   }
 
+  /// Deletes anime of [id] from anime list.
+  /// 
+  /// Returns [true] on success and [false] if the anime
+  /// is not in the list.
   Future<bool> deleteAnimeFromList(int id) async {
     var uri = "anime/$id/my_list_status";
     var result = await _handler.call(method: "delete", uri: uri);
     return result == 200 ? true : false;
   }
 
+  /// Returns anime list of [username].
+  /// 
+  /// [username] defaults to '@me' which is the authorized user.
+  /// 
+  /// Valid values for [status] include:
+  /// 'watching', 'completed', 'on_hold', 'dropped'
+  /// and 'plan_to_watch'.
+  /// Don't specify [status] to return all anime.
+  /// 
+  /// Valid values for [sort] include:
+  /// 'list_score', 'list_updated_at', 'anime_title' and
+  /// 'anime_start_date'.
+  /// 
+  /// Max [limit] is 1000.
   Future<List<AnimeList>> getAnimeList(
       {String username = "@me",
       String status = "",
@@ -259,6 +316,9 @@ class Client {
     return response.data;
   }
 
+  /// Updates manga list with manga of [id].
+  /// 
+  /// Returns [true] on success.
   Future<bool> updateMangaList(int id, MangaListTemplate list) async {
     var uri = "manga/$id/my_list_status";
     var result =
@@ -266,12 +326,30 @@ class Client {
     return result;
   }
 
+  /// Deletes manga of [id] from manga list.
+  /// 
+  /// Returns [true] on success and [false] if the manga
+  /// is not in the list.
   Future<bool> deleteMangaFromList(int id) async {
     var uri = "manga/$id/my_list_status";
     var result = await _handler.call(method: "delete", uri: uri);
     return result == 200 ? true : false;
   }
 
+  /// Returns manga list of [username].
+  /// 
+  /// [username] defaults to '@me' which is the authorized user.
+  /// 
+  /// Valid values for [status] include:
+  /// 'reading', 'completed', 'on_hold', 'dropped'
+  /// and 'plan_to_read'.
+  /// Don't specify [status] to return all manga.
+  /// 
+  /// Valid values for [sort] include:
+  /// 'list_score', 'list_updated_at', 'manga_title' and
+  /// 'manga_start_date'.
+  /// 
+  /// Max [limit] is 1000.
   Future<List<MangaList>> getMangaList(
       {String username = "@me",
       String status = "",

@@ -15,22 +15,24 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
+/// Template for updating manga list.
 class MangaListTemplate {
-  /// 'reading', 'completed', 'on_hold', 'dropped', 'plan_to_read'
+  /// Possible values: 'reading', 'completed', 'on_hold', 'dropped', 
+  /// plan_to_read'
   final String status;
 
   final bool isRereading;
 
-  /// 0-10
+  /// Possible values: 0-10
   final int score;
   final int numVolumesRead;
   final int numChaptersRead;
 
-  /// 0-2
+  /// Possible values: 0-2
   final int priority;
   final int numTimesReread;
 
-  /// 0-5
+  /// Possible values: 0-5
   final int rereadValue;
   final String tags;
   final String comments;
@@ -46,7 +48,8 @@ class MangaListTemplate {
       this.rereadValue = 0,
       this.tags = "",
       this.comments = ""});
-
+  
+  /// Returns map for encoding as form fields.
   Map<String, String> toMap() {
     return {
       'status': status,

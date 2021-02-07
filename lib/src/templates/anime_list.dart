@@ -15,21 +15,23 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
+/// Template for updating anime list.
 class AnimeListTemplate {
-  /// 'watching', 'completed', 'on_hold', 'dropped', 'plan_to_watch'
+  /// Possible values: 'watching', 'completed', 'on_hold', 'dropped',
+  /// 'plan_to_watch'.
   final String status;
 
   final bool isRewatching;
 
-  /// 0-10
+  /// Possible values: 0-10
   final int score;
   final int numWatchedEpisodes;
 
-  /// 0-2
+  /// Possible values: 0-2
   final int priority;
   final int numTimesRewatched;
 
-  /// 0-5
+  /// Possible values: 0-5
   final int rewatchValue;
   final String tags;
   final String comments;
@@ -45,6 +47,7 @@ class AnimeListTemplate {
       this.tags = "",
       this.comments = ""});
 
+  /// Returns map for encoding as form fields.
   Map<String, String> toMap() {
     return {
       'status': status,

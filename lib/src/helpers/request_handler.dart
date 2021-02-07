@@ -21,6 +21,7 @@ import 'package:http/http.dart' as http;
 
 import '../exceptions.dart';
 
+/// Handles all requests to the API.
 class RequestHandler {
   http.Client _client;
   String baseUrl;
