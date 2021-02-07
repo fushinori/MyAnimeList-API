@@ -18,3 +18,5 @@
 export 'src/client.dart';
 export 'src/exceptions.dart';
 export 'src/models.dart';
+export 'src/templates/anime_list.dart';
+export 'src/templates/manga_list.dart';
