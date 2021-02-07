@@ -21,7 +21,13 @@ import 'models/generic/generic_response.dart';
 import 'models/generic/node.dart';
 import 'models/generic/ranked_node.dart';
 import 'models/generic/ranked_response.dart';
+import 'models/lists/anime_list.dart';
+import 'models/lists/animelist_response.dart';
+import 'models/lists/manga_list.dart';
+import 'models/lists/mangalist_response.dart';
 import 'models/manga/manga.dart';
+import 'templates/anime_list.dart';
+import 'templates/manga_list.dart';
 
 /// Main MyAnimeList client
 class Client {
@@ -229,5 +235,73 @@ class Client {
     var response = RankedResponse.fromJson(json);
     nodeList.addAll(response.data);
     return nodeList;
+  }
+
+  Future<bool> updateAnimeList(int id, AnimeListTemplate list) async {
+    var uri = "anime/$id/my_list_status";
+    var result =
+        await _handler.call(method: "patch", uri: uri, body: list.toMap());
+    return result;
+  }
+
+  Future<bool> deleteAnimeFromList(int id) async {
+    var uri = "anime/$id/my_list_status";
+    var result = await _handler.call(method: "delete", uri: uri);
+    return result == 200 ? true : false;
+  }
+
+  Future<List<AnimeList>> getAnimeList(
+      {String username = "@me",
+      String status = "",
+      String sort = "",
+      int limit = 10,
+      int offset = 0}) async {
+    var uri = "users/$username/animelist";
+    var params = {
+      if (status.isNotEmpty) 'status': status,
+      if (sort.isNotEmpty) 'sort': sort,
+      'limit': '$limit',
+      'offset': '$offset',
+      'fields': 'list_status'
+    };
+    var json = await _handler.call(uri: uri, params: params);
+    var animeList = <AnimeList>[];
+    var response = AnimeListResponse.fromJson(json);
+    animeList.addAll(response.data);
+    return animeList;
+  }
+
+  Future<bool> updateMangaList(int id, MangaListTemplate list) async {
+    var uri = "manga/$id/my_list_status";
+    var result =
+        await _handler.call(method: "patch", uri: uri, body: list.toMap());
+    return result;
+  }
+
+  Future<bool> deleteMangaFromList(int id) async {
+    var uri = "manga/$id/my_list_status";
+    var result = await _handler.call(method: "delete", uri: uri);
+    return result == 200 ? true : false;
+  }
+
+  Future<List<MangaList>> getMangaList(
+      {String username = "@me",
+      String status = "",
+      String sort = "",
+      int limit = 10,
+      int offset = 0}) async {
+    var uri = "users/$username/mangalist";
+    var params = {
+      if (status.isNotEmpty) 'status': status,
+      if (sort.isNotEmpty) 'sort': sort,
+      'limit': '$limit',
+      'offset': '$offset',
+      'fields': 'list_status'
+    };
+    var json = await _handler.call(uri: uri, params: params);
+    var mangaList = <MangaList>[];
+    var response = MangaListResponse.fromJson(json);
+    mangaList.addAll(response.data);
+    return mangaList;
   }
 }
