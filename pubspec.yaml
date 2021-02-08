@@ -1,5 +1,5 @@
 name: myanimelist_api
-version: 0.2.0
+version: 0.2.0+1
 description: Asynchronous API wrapper for the official MyAnimeList API v2.
 repository: https://github.com/rsktg/MyAnimeList-API
 dependencies:

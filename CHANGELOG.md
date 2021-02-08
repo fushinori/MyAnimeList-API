@@ -1,3 +1,7 @@
+## 0.2.0+1
+
+* Minor formatting changes
+
 ## 0.2.0
 
 * Add methods for anime and manga lists.
