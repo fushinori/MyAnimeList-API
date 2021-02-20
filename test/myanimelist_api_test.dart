@@ -63,9 +63,9 @@ void main() {
     });
 
     test("Get seasonal anime", () async {
-      var animeList = await client.getSeasonalAnime(2017, "summer");
+      var animeList = await client.getSeasonalAnime(2018, "winter");
       expect(animeList.length, 10);
-      expect(animeList[0].id, 35111);
+      expect(animeList[0].id, 36838);
     });
 
     test("Test invalid arguments for seasonal anime", () async {
@@ -114,7 +114,7 @@ void main() {
     });
   });
 
-  group("[Anime list] ", () {
+  group("[Anime list]", () {
     test("Update anime list", () async {
       var list = AnimeListTemplate(
           status: "completed", score: 6, numWatchedEpisodes: 25);
