@@ -54,4 +54,4 @@ await client.updateAnimeList(30015, template);
 - [X] User anime list
 - [ ] Forum info
 - [X] User manga list
-- [ ] User info
+- [X] User info
