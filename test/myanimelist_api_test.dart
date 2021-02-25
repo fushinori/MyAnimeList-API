@@ -65,7 +65,6 @@ void main() {
     test("Get seasonal anime", () async {
       var animeList = await client.getSeasonalAnime(2018, "winter");
       expect(animeList.length, 10);
-      expect(animeList[0].id, 36838);
     });
 
     test("Test invalid arguments for seasonal anime", () async {
