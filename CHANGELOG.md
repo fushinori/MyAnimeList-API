@@ -1,3 +1,8 @@
+## 0.3.0
+
+* Add `getUserInfo` method.
+* Add more documentation comments.
+
 ## 0.2.0+1
 
 * Minor formatting changes
