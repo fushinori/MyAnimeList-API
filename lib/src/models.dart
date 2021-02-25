@@ -39,3 +39,5 @@ export 'models/manga/manga.dart';
 export 'models/manga/my_list_status.dart';
 export 'models/manga/serial_node.dart';
 export 'models/manga/serialization.dart';
+export 'models/user/anime_statistics.dart';
+export 'models/user/user.dart';
