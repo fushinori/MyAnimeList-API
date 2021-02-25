@@ -152,4 +152,12 @@ void main() {
       expect(anime.listStatus.score, 10);
     });
   });
+
+  group("[User]", () {
+    test("Get user information", () async {
+      var user = await client.getUserInfo();
+      expect(user.name, "TheRealPhoenix");
+      expect(user.animeStatistics.numItemsOnHold, 0);
+    });
+  });
 }
