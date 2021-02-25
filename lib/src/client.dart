@@ -26,6 +26,7 @@ import 'models/lists/animelist_response.dart';
 import 'models/lists/manga_list.dart';
 import 'models/lists/mangalist_response.dart';
 import 'models/manga/manga.dart';
+import 'models/user/user.dart';
 import 'templates/anime_list.dart';
 import 'templates/manga_list.dart';
 
@@ -367,5 +368,16 @@ class Client {
     var json = await _handler.call(uri: uri, params: params);
     var response = MangaListResponse.fromJson(json);
     return response.data;
+  }
+
+  /// Returns user information about [username].
+  ///
+  /// Currently, [username] can only be '@me'.
+  /// This may change in the future.
+  Future<User> getUserInfo({String username = "@me"}) async {
+    var uri = "users/$username";
+    var params = {'fields': 'anime_statistics'};
+    var json = await _handler.call(uri: uri, params: params);
+    return User.fromJson(json);
   }
 }
