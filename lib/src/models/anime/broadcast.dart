@@ -19,6 +19,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'broadcast.g.dart';
 
+/// Broadcast info of the anime.
 @JsonSerializable(createToJson: false, fieldRename: FieldRename.snake)
 class Broadcast {
   final String dayOfTheWeek;

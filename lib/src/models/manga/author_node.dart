@@ -19,6 +19,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'author_node.g.dart';
 
+/// Info about the particular author.
 @JsonSerializable(createToJson: false, fieldRename: FieldRename.snake)
 class AuthorNode {
   final int id;

@@ -19,9 +19,13 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'picture.g.dart';
 
+/// Additional pictures for the anime or manga.
 @JsonSerializable(createToJson: false)
 class Picture {
+  /// URL of medium image.
   final String medium;
+
+  /// URL of large image.
   final String large;
 
   Picture(this.medium, this.large);

@@ -19,6 +19,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'start_season.g.dart';
 
+/// Season info of the anime.
 @JsonSerializable(createToJson: false)
 class StartSeason {
   final int year;

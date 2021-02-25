@@ -21,6 +21,7 @@ import 'author_node.dart';
 
 part 'author.g.dart';
 
+/// Author of the manga.
 @JsonSerializable(createToJson: false)
 class Author {
   final AuthorNode node;

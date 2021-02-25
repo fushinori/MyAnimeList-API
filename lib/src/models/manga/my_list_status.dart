@@ -23,6 +23,7 @@ import '../../helpers/date_conversion.dart';
 
 part 'my_list_status.g.dart';
 
+/// Manga list status of the authorized user for the anime.
 @JsonSerializable(createToJson: false, fieldRename: FieldRename.snake)
 class MyMangaListStatus {
   final String status;

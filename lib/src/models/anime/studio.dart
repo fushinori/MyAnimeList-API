@@ -19,6 +19,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'studio.g.dart';
 
+/// Studio behind the production of the anime.
 @JsonSerializable(createToJson: false)
 class Studio {
   final int id;

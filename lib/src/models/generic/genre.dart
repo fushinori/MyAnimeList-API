@@ -19,6 +19,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'genre.g.dart';
 
+/// Genre of the anime or manga.
 @JsonSerializable(createToJson: false)
 class Genre {
   final int id;

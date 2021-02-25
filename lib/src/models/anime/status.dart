@@ -19,6 +19,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'status.g.dart';
 
+/// Info pertaining to MAL users regarding the anime.
 @JsonSerializable(createToJson: false, fieldRename: FieldRename.snake)
 class Status {
   final String watching;

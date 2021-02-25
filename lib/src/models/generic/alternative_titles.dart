@@ -19,6 +19,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'alternative_titles.g.dart';
 
+/// Alternative titles for the anime or manga.
 @JsonSerializable(createToJson: false)
 class AlternativeTitles {
   final List<String> synonyms;

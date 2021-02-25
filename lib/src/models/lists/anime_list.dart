@@ -22,6 +22,7 @@ import '../generic/node.dart';
 
 part 'anime_list.g.dart';
 
+/// Anime list info of a user.
 @JsonSerializable(createToJson: false, fieldRename: FieldRename.snake)
 class AnimeList {
   final Node node;

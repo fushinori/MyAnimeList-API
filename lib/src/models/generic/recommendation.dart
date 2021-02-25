@@ -21,6 +21,7 @@ import 'node.dart';
 
 part 'recommendation.g.dart';
 
+/// Recommended anime or manga.
 @JsonSerializable(createToJson: false, fieldRename: FieldRename.snake)
 class Recommendation {
   final Node node;

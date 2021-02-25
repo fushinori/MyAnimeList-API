@@ -19,6 +19,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'serial_node.g.dart';
 
+/// Info about the particular serialization.
 @JsonSerializable(createToJson: false)
 class SerialNode {
   final int id;

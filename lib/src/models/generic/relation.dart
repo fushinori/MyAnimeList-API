@@ -21,6 +21,7 @@ import 'node.dart';
 
 part 'relation.g.dart';
 
+/// Related anime or manga.
 @JsonSerializable(createToJson: false, fieldRename: FieldRename.snake)
 class Relation {
   final Node node;

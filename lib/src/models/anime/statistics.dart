@@ -21,6 +21,7 @@ import 'status.dart';
 
 part 'statistics.g.dart';
 
+/// Statistics of the anime.
 @JsonSerializable(createToJson: false, fieldRename: FieldRename.snake)
 class Statistics {
   final Status status;

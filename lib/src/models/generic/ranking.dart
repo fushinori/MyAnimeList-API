@@ -19,6 +19,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'ranking.g.dart';
 
+/// Ranking of the anime or manga.
 @JsonSerializable(createToJson: false)
 class Ranking {
   final int rank;
