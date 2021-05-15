@@ -21,7 +21,7 @@ import 'package:test/test.dart';
 import 'package:myanimelist_api/myanimelist_api.dart';
 
 void main() {
-  Client client;
+  late Client client;
 
   setUpAll(() {
     client = Client(Platform.environment['MAL_ACCESS_TOKEN']);
@@ -38,22 +38,22 @@ void main() {
       expect(animeList.length, 5);
       var anime = animeList[0];
       expect(anime.id, 21);
-      expect(anime.mainPicture.large,
+      expect(anime.mainPicture!.large,
           "https://api-cdn.myanimelist.net/images/anime/6/73245l.jpg");
     });
 
     test("Get complete anime info", () async {
       var anime = await client.getAnimeDetails(30230);
       expect(anime.title, "Diamond no Ace: Second Season");
-      expect(anime.genres[0].name, "Comedy");
-      expect(anime.relatedAnime[0].node.id, 18689);
+      expect(anime.genres![0].name, "Comedy");
+      expect(anime.relatedAnime![0].node!.id, 18689);
       expect(anime.createdAt, DateTime.parse("2015-03-02T06:03:11+00:00"));
     });
 
     test("Get anime ranking", () async {
       var animeList = await client.getAnimeRanking(limit: 5, offset: 3);
       expect(animeList.length, 5);
-      expect(animeList[0].ranking.rank, 4);
+      expect(animeList[0].ranking!.rank, 4);
     });
 
     test("Test invalid arguments for anime ranking", () async {
@@ -94,16 +94,16 @@ void main() {
     test("Get complete manga info", () async {
       var manga = await client.getMangaDetails(2);
       expect(manga.title, "Berserk");
-      expect(manga.alternativeTitles.synonyms[0], "Berserk: The Prototype");
+      expect(manga.alternativeTitles!.synonyms![0], "Berserk: The Prototype");
       expect(manga.startDate, DateTime.parse("1989-08-25"));
-      expect(manga.genres[0].name, "Action");
-      expect(manga.authors[0].node.firstName, "Kentarou");
+      expect(manga.genres![0].name, "Action");
+      expect(manga.authors![0].node!.firstName, "Kentarou");
     });
 
     test("Get manga ranking", () async {
       var mangaList = await client.getMangaRanking(limit: 5, offset: 3);
       expect(mangaList.length, 5);
-      expect(mangaList[0].ranking.rank, 4);
+      expect(mangaList[0].ranking!.rank, 4);
     });
 
     test("Test invalid arguments for manga ranking", () async {
@@ -128,8 +128,8 @@ void main() {
 
     test("Get user anime list", () async {
       var anime = (await client.getAnimeList())[0];
-      expect(anime.node.title, "Kimi no Na wa.");
-      expect(anime.listStatus.score, 9);
+      expect(anime.node!.title, "Kimi no Na wa.");
+      expect(anime.listStatus!.score, 9);
     });
   });
 
@@ -148,8 +148,8 @@ void main() {
 
     test("Get user manga list", () async {
       var anime = (await client.getMangaList())[0];
-      expect(anime.node.title, "ReLIFE");
-      expect(anime.listStatus.score, 10);
+      expect(anime.node!.title, "ReLIFE");
+      expect(anime.listStatus!.score, 10);
     });
   });
 
@@ -157,7 +157,7 @@ void main() {
     test("Get user information", () async {
       var user = await client.getUserInfo();
       expect(user.name, "TheRealPhoenix");
-      expect(user.animeStatistics.numItemsOnHold, 0);
+      expect(user.animeStatistics!.numItemsOnHold, 0);
     });
   });
 }
