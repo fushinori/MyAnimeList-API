@@ -23,7 +23,7 @@ part 'mangalist_response.g.dart';
 
 @JsonSerializable(createToJson: false)
 class MangaListResponse {
-  final List<MangaList> data;
+  final List<MangaList>? data;
 
   MangaListResponse(this.data);
 

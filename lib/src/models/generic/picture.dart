@@ -23,10 +23,10 @@ part 'picture.g.dart';
 @JsonSerializable(createToJson: false)
 class Picture {
   /// URL of medium image.
-  final String medium;
+  final String? medium;
 
   /// URL of large image.
-  final String large;
+  final String? large;
 
   Picture(this.medium, this.large);
 

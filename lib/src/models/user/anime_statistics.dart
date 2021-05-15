@@ -22,21 +22,21 @@ part 'anime_statistics.g.dart';
 /// Anime statistics of the user.
 @JsonSerializable(createToJson: false, fieldRename: FieldRename.snake)
 class AnimeStatistics {
-  final int numItemsWatching;
-  final int numItemsCompleted;
-  final int numItemsOnHold;
-  final int numItemsDropped;
-  final int numItemsPlanToWatch;
-  final int numItems;
-  final double numDaysWatched;
-  final double numDaysWatching;
-  final double numDaysCompleted;
-  final double numDaysOnHold;
-  final double numDaysDropped;
-  final double numDays;
-  final int numEpisodes;
-  final int numTimesRewatched;
-  final double meanScore;
+  final int? numItemsWatching;
+  final int? numItemsCompleted;
+  final int? numItemsOnHold;
+  final int? numItemsDropped;
+  final int? numItemsPlanToWatch;
+  final int? numItems;
+  final double? numDaysWatched;
+  final double? numDaysWatching;
+  final double? numDaysCompleted;
+  final double? numDaysOnHold;
+  final double? numDaysDropped;
+  final double? numDays;
+  final int? numEpisodes;
+  final int? numTimesRewatched;
+  final double? meanScore;
 
   AnimeStatistics(
       this.numItemsWatching,

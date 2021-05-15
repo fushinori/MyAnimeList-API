@@ -24,9 +24,9 @@ part 'relation.g.dart';
 /// Related anime or manga.
 @JsonSerializable(createToJson: false, fieldRename: FieldRename.snake)
 class Relation {
-  final Node node;
-  final String relationType;
-  final String relationTypeFormatted;
+  final Node? node;
+  final String? relationType;
+  final String? relationTypeFormatted;
 
   Relation(this.node, this.relationType, this.relationTypeFormatted);
 

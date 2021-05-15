@@ -24,7 +24,7 @@ part 'serialization.g.dart';
 /// Serialization info about the manga.
 @JsonSerializable(createToJson: false)
 class Serialization {
-  final SerialNode node;
+  final SerialNode? node;
 
   Serialization(this.node);
 

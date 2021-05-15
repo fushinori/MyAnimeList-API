@@ -8,8 +8,8 @@ part of 'alternative_titles.dart';
 
 AlternativeTitles _$AlternativeTitlesFromJson(Map<String, dynamic> json) {
   return AlternativeTitles(
-    (json['synonyms'] as List)?.map((e) => e as String)?.toList(),
-    json['en'] as String,
-    json['ja'] as String,
+    (json['synonyms'] as List?)?.map((e) => e as String).toList(),
+    json['en'] as String?,
+    json['ja'] as String?,
   );
 }

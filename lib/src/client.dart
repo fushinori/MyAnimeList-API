@@ -35,11 +35,11 @@ class Client {
   /// Base URL for all requests.
   final String baseUrl = "https://api.myanimelist.net/v2/";
 
-  RequestHandler _handler;
-  Map<String, String> _headers;
+  late RequestHandler _handler;
+  Map<String, String>? _headers;
 
   /// See https://myanimelist.net/blog.php?eid=835707.
-  String accessToken;
+  String? accessToken;
 
   final Set<String> _animeFields = {
     "id",
@@ -150,7 +150,7 @@ class Client {
     var params = {'q': keyword, 'limit': '$limit', 'offset': '$offset'};
     var json = await _handler.call(uri: uri, params: params);
     var response = GenericResponse.fromJson(json);
-    return response.data.map((e) => e.node).toList();
+    return response.data!.map((e) => e.node!).toList();
   }
 
   /// Returns complete [Anime] object.
@@ -183,7 +183,7 @@ class Client {
     };
     var json = await _handler.call(uri: uri, params: params);
     var response = RankedResponse.fromJson(json);
-    return response.data;
+    return response.data!;
   }
 
   /// Returns list of [Node] objects based on [year] and [season].
@@ -207,7 +207,7 @@ class Client {
     var params = {'sort': sort, 'limit': '$limit', 'offset': '$offset'};
     var json = await _handler.call(uri: uri, params: params);
     var response = GenericResponse.fromJson(json);
-    return response.data.map((e) => e.node).toList();
+    return response.data!.map((e) => e.node!).toList();
   }
 
   /// Returns list of suggested [Node] objects for the authorized user.
@@ -216,7 +216,7 @@ class Client {
     var params = {'limit': '$limit', 'offset': '$offset'};
     var json = await _handler.call(uri: uri, params: params);
     var response = GenericResponse.fromJson(json);
-    return response.data.map((e) => e.node).toList();
+    return response.data!.map((e) => e.node!).toList();
   }
 
   /// Returns list of [Node] objects based on [keyword].
@@ -228,7 +228,7 @@ class Client {
     var params = {'q': keyword, 'limit': '$limit', 'offset': '$offset'};
     var json = await _handler.call(uri: uri, params: params);
     var response = GenericResponse.fromJson(json);
-    return response.data.map((e) => e.node).toList();
+    return response.data!.map((e) => e.node!).toList();
   }
 
   /// Returns complete [Manga] object.
@@ -261,7 +261,7 @@ class Client {
     };
     var json = await _handler.call(uri: uri, params: params);
     var response = RankedResponse.fromJson(json);
-    return response.data;
+    return response.data!;
   }
 
   /// Updates anime list with anime of [id].
@@ -314,7 +314,7 @@ class Client {
     };
     var json = await _handler.call(uri: uri, params: params);
     var response = AnimeListResponse.fromJson(json);
-    return response.data;
+    return response.data!;
   }
 
   /// Updates manga list with manga of [id].
@@ -367,7 +367,7 @@ class Client {
     };
     var json = await _handler.call(uri: uri, params: params);
     var response = MangaListResponse.fromJson(json);
-    return response.data;
+    return response.data!;
   }
 
   /// Returns user information about [username].

@@ -8,9 +8,8 @@ part of 'ranked_response.dart';
 
 RankedResponse _$RankedResponseFromJson(Map<String, dynamic> json) {
   return RankedResponse(
-    (json['data'] as List)
-        ?.map((e) =>
-            e == null ? null : RankedNode.fromJson(e as Map<String, dynamic>))
-        ?.toList(),
+    (json['data'] as List?)
+        ?.map((e) => RankedNode.fromJson(e as Map<String, dynamic>))
+        .toList(),
   );
 }

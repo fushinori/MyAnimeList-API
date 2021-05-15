@@ -26,14 +26,14 @@ part 'my_list_status.g.dart';
 /// Manga list status of the authorized user for the anime.
 @JsonSerializable(createToJson: false, fieldRename: FieldRename.snake)
 class MyMangaListStatus {
-  final String status;
-  final bool isRereading;
-  final int numVolumesRead;
-  final int numChaptersRead;
-  final int score;
+  final String? status;
+  final bool? isRereading;
+  final int? numVolumesRead;
+  final int? numChaptersRead;
+  final int? score;
 
   @JsonKey(fromJson: stringToDate)
-  final DateTime updatedAt;
+  final DateTime? updatedAt;
 
   MyMangaListStatus(this.status, this.isRereading, this.numVolumesRead,
       this.score, this.numChaptersRead, this.updatedAt);

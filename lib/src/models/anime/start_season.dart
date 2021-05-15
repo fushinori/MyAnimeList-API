@@ -22,8 +22,8 @@ part 'start_season.g.dart';
 /// Season info of the anime.
 @JsonSerializable(createToJson: false)
 class StartSeason {
-  final int year;
-  final String season;
+  final int? year;
+  final String? season;
 
   StartSeason(this.year, this.season);
 

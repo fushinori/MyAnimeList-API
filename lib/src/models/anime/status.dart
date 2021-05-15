@@ -22,11 +22,11 @@ part 'status.g.dart';
 /// Info pertaining to MAL users regarding the anime.
 @JsonSerializable(createToJson: false, fieldRename: FieldRename.snake)
 class Status {
-  final String watching;
-  final String completed;
-  final String onHold;
-  final String dropped;
-  final String planToWatch;
+  final String? watching;
+  final String? completed;
+  final String? onHold;
+  final String? dropped;
+  final String? planToWatch;
 
   Status(this.watching, this.completed, this.onHold, this.dropped,
       this.planToWatch);

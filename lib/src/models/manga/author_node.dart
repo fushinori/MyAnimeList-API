@@ -22,9 +22,9 @@ part 'author_node.g.dart';
 /// Info about the particular author.
 @JsonSerializable(createToJson: false, fieldRename: FieldRename.snake)
 class AuthorNode {
-  final int id;
-  final String firstName;
-  final String lastName;
+  final int? id;
+  final String? firstName;
+  final String? lastName;
 
   AuthorNode(this.id, this.firstName, this.lastName);
 

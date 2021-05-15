@@ -25,8 +25,8 @@ part 'anime_list.g.dart';
 /// Anime list info of a user.
 @JsonSerializable(createToJson: false, fieldRename: FieldRename.snake)
 class AnimeList {
-  final Node node;
-  final MyAnimeListStatus listStatus;
+  final Node? node;
+  final MyAnimeListStatus? listStatus;
 
   AnimeList(this.node, this.listStatus);
 

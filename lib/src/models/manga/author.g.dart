@@ -11,6 +11,6 @@ Author _$AuthorFromJson(Map<String, dynamic> json) {
     json['node'] == null
         ? null
         : AuthorNode.fromJson(json['node'] as Map<String, dynamic>),
-    json['role'] as String,
+    json['role'] as String?,
   );
 }

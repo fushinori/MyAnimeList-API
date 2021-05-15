@@ -25,8 +25,8 @@ part 'manga_list.g.dart';
 /// Manga list info of a user.
 @JsonSerializable(createToJson: false, fieldRename: FieldRename.snake)
 class MangaList {
-  final Node node;
-  final MyMangaListStatus listStatus;
+  final Node? node;
+  final MyMangaListStatus? listStatus;
 
   MangaList(this.node, this.listStatus);
 

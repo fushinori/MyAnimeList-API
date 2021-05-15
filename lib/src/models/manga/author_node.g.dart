@@ -8,8 +8,8 @@ part of 'author_node.dart';
 
 AuthorNode _$AuthorNodeFromJson(Map<String, dynamic> json) {
   return AuthorNode(
-    json['id'] as int,
-    json['first_name'] as String,
-    json['last_name'] as String,
+    json['id'] as int?,
+    json['first_name'] as String?,
+    json['last_name'] as String?,
   );
 }

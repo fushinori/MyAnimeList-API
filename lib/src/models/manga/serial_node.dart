@@ -22,8 +22,8 @@ part 'serial_node.g.dart';
 /// Info about the particular serialization.
 @JsonSerializable(createToJson: false)
 class SerialNode {
-  final int id;
-  final String name;
+  final int? id;
+  final String? name;
 
   SerialNode(this.id, this.name);
 

@@ -23,7 +23,7 @@ part 'generic_response.g.dart';
 
 @JsonSerializable(createToJson: false)
 class GenericResponse {
-  final List<NodeContainer> data;
+  final List<NodeContainer>? data;
 
   GenericResponse(this.data);
 

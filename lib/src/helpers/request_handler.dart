@@ -23,22 +23,22 @@ import '../exceptions.dart';
 
 /// Handles all requests to the API.
 class RequestHandler {
-  http.Client _client;
+  late http.Client _client;
   String baseUrl;
-  Map<String, String> headers;
+  Map<String, String>? headers;
 
   RequestHandler(this.baseUrl, this.headers) {
     _client = http.Client();
   }
 
   Future<dynamic> call(
-      {String uri,
+      {String? uri,
       String method = "get",
-      Map<String, String> params,
-      Map<String, String> body}) async {
+      Map<String, String>? params,
+      Map<String, String?>? body}) async {
     var finalUrl = "$baseUrl$uri${Uri(queryParameters: params)}";
     if (method == "get") {
-      var response = await _client.get(finalUrl, headers: headers);
+      var response = await _client.get(Uri.parse(finalUrl), headers: headers);
       var json = jsonDecode(response.body);
       if (response.statusCode == 200) {
         return json;
@@ -48,8 +48,8 @@ class RequestHandler {
         throw ApiException(response.statusCode, message, error);
       }
     } else if (method == "patch") {
-      var response =
-          await _client.patch(finalUrl, headers: headers, body: body);
+      var response = await _client.patch(Uri.parse(finalUrl),
+          headers: headers, body: body);
       var json = jsonDecode(response.body);
       if (response.statusCode == 200) {
         return true;
@@ -59,7 +59,8 @@ class RequestHandler {
         throw ApiException(response.statusCode, message, error);
       }
     } else if (method == "delete") {
-      var response = await _client.delete(finalUrl, headers: headers);
+      var response =
+          await _client.delete(Uri.parse(finalUrl), headers: headers);
       var json = jsonDecode(response.body);
       var code = response.statusCode;
       if ({404, 200}.contains(code)) {

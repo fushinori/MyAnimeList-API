@@ -8,7 +8,7 @@ part of 'broadcast.dart';
 
 Broadcast _$BroadcastFromJson(Map<String, dynamic> json) {
   return Broadcast(
-    json['day_of_the_week'] as String,
-    json['start_time'] as String,
+    json['day_of_the_week'] as String?,
+    json['start_time'] as String?,
   );
 }

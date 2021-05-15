@@ -22,7 +22,7 @@ part 'ranking.g.dart';
 /// Ranking of the anime or manga.
 @JsonSerializable(createToJson: false)
 class Ranking {
-  final int rank;
+  final int? rank;
 
   Ranking(this.rank);
 

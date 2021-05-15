@@ -8,6 +8,6 @@ part of 'ranking.dart';
 
 Ranking _$RankingFromJson(Map<String, dynamic> json) {
   return Ranking(
-    json['rank'] as int,
+    json['rank'] as int?,
   );
 }

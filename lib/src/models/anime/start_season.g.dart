@@ -8,7 +8,7 @@ part of 'start_season.dart';
 
 StartSeason _$StartSeasonFromJson(Map<String, dynamic> json) {
   return StartSeason(
-    json['year'] as int,
-    json['season'] as String,
+    json['year'] as int?,
+    json['season'] as String?,
   );
 }

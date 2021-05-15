@@ -11,6 +11,6 @@ Recommendation _$RecommendationFromJson(Map<String, dynamic> json) {
     json['node'] == null
         ? null
         : Node.fromJson(json['node'] as Map<String, dynamic>),
-    json['num_recommendations'] as int,
+    json['num_recommendations'] as int?,
   );
 }

@@ -25,8 +25,8 @@ part 'ranked_node.g.dart';
 /// [Node] object with [ranking] field.
 @JsonSerializable(createToJson: false)
 class RankedNode {
-  final Node node;
-  final Ranking ranking;
+  final Node? node;
+  final Ranking? ranking;
 
   RankedNode(this.node, this.ranking);
 

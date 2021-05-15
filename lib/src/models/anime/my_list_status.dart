@@ -26,13 +26,13 @@ part 'my_list_status.g.dart';
 /// Anime list status of the authorized user for the anime.
 @JsonSerializable(createToJson: false, fieldRename: FieldRename.snake)
 class MyAnimeListStatus {
-  final String status;
-  final int score;
-  final int numEpisodesWatched;
-  final bool isRewatching;
+  final String? status;
+  final int? score;
+  final int? numEpisodesWatched;
+  final bool? isRewatching;
 
   @JsonKey(fromJson: stringToDate)
-  final DateTime updatedAt;
+  final DateTime? updatedAt;
 
   MyAnimeListStatus(this.status, this.score, this.numEpisodesWatched,
       this.isRewatching, this.updatedAt);

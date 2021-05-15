@@ -8,10 +8,8 @@ part of 'generic_response.dart';
 
 GenericResponse _$GenericResponseFromJson(Map<String, dynamic> json) {
   return GenericResponse(
-    (json['data'] as List)
-        ?.map((e) => e == null
-            ? null
-            : NodeContainer.fromJson(e as Map<String, dynamic>))
-        ?.toList(),
+    (json['data'] as List?)
+        ?.map((e) => NodeContainer.fromJson(e as Map<String, dynamic>))
+        .toList(),
   );
 }

@@ -8,7 +8,7 @@ part of 'main_picture.dart';
 
 MainPicture _$MainPictureFromJson(Map<String, dynamic> json) {
   return MainPicture(
-    json['medium'] as String,
-    json['large'] as String,
+    json['medium'] as String?,
+    json['large'] as String?,
   );
 }

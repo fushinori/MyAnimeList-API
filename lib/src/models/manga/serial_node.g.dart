@@ -8,7 +8,7 @@ part of 'serial_node.dart';
 
 SerialNode _$SerialNodeFromJson(Map<String, dynamic> json) {
   return SerialNode(
-    json['id'] as int,
-    json['name'] as String,
+    json['id'] as int?,
+    json['name'] as String?,
   );
 }

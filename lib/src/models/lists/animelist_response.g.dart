@@ -8,9 +8,8 @@ part of 'animelist_response.dart';
 
 AnimeListResponse _$AnimeListResponseFromJson(Map<String, dynamic> json) {
   return AnimeListResponse(
-    (json['data'] as List)
-        ?.map((e) =>
-            e == null ? null : AnimeList.fromJson(e as Map<String, dynamic>))
-        ?.toList(),
+    (json['data'] as List?)
+        ?.map((e) => AnimeList.fromJson(e as Map<String, dynamic>))
+        .toList(),
   );
 }

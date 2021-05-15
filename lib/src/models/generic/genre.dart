@@ -22,8 +22,8 @@ part 'genre.g.dart';
 /// Genre of the anime or manga.
 @JsonSerializable(createToJson: false)
 class Genre {
-  final int id;
-  final String name;
+  final int? id;
+  final String? name;
 
   Genre(this.id, this.name);
 

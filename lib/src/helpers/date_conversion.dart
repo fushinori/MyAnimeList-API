@@ -15,7 +15,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-DateTime stringToDate(String date) {
+DateTime? stringToDate(String? date) {
   if (date == null) return null;
   return DateTime.parse(date);
 }

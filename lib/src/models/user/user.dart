@@ -25,14 +25,14 @@ part 'user.g.dart';
 /// Info about a user.
 @JsonSerializable(createToJson: false, fieldRename: FieldRename.snake)
 class User {
-  final int id;
-  final String name;
-  final String location;
+  final int? id;
+  final String? name;
+  final String? location;
 
   @JsonKey(fromJson: stringToDate)
-  final DateTime joinedAt;
+  final DateTime? joinedAt;
 
-  final AnimeStatistics animeStatistics;
+  final AnimeStatistics? animeStatistics;
 
   User(this.id, this.name, this.location, this.joinedAt, this.animeStatistics);
 

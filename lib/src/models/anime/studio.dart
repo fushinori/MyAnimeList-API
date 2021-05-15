@@ -22,8 +22,8 @@ part 'studio.g.dart';
 /// Studio behind the production of the anime.
 @JsonSerializable(createToJson: false)
 class Studio {
-  final int id;
-  final String name;
+  final int? id;
+  final String? name;
 
   Studio(this.id, this.name);
 

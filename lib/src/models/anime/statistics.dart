@@ -24,8 +24,8 @@ part 'statistics.g.dart';
 /// Statistics of the anime.
 @JsonSerializable(createToJson: false, fieldRename: FieldRename.snake)
 class Statistics {
-  final Status status;
-  final int numListUsers;
+  final Status? status;
+  final int? numListUsers;
 
   Statistics(this.status, this.numListUsers);
 

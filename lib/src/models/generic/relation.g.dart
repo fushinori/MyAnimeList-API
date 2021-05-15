@@ -11,7 +11,7 @@ Relation _$RelationFromJson(Map<String, dynamic> json) {
     json['node'] == null
         ? null
         : Node.fromJson(json['node'] as Map<String, dynamic>),
-    json['relation_type'] as String,
-    json['relation_type_formatted'] as String,
+    json['relation_type'] as String?,
+    json['relation_type_formatted'] as String?,
   );
 }

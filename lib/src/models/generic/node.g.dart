@@ -8,8 +8,8 @@ part of 'node.dart';
 
 Node _$NodeFromJson(Map<String, dynamic> json) {
   return Node(
-    json['id'] as int,
-    json['title'] as String,
+    json['id'] as int?,
+    json['title'] as String?,
     json['main_picture'] == null
         ? null
         : MainPicture.fromJson(json['main_picture'] as Map<String, dynamic>),

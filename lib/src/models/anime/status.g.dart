@@ -8,10 +8,10 @@ part of 'status.dart';
 
 Status _$StatusFromJson(Map<String, dynamic> json) {
   return Status(
-    json['watching'] as String,
-    json['completed'] as String,
-    json['on_hold'] as String,
-    json['dropped'] as String,
-    json['plan_to_watch'] as String,
+    json['watching'] as String?,
+    json['completed'] as String?,
+    json['on_hold'] as String?,
+    json['dropped'] as String?,
+    json['plan_to_watch'] as String?,
   );
 }

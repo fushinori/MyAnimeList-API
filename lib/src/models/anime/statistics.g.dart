@@ -11,6 +11,6 @@ Statistics _$StatisticsFromJson(Map<String, dynamic> json) {
     json['status'] == null
         ? null
         : Status.fromJson(json['status'] as Map<String, dynamic>),
-    json['num_list_users'] as int,
+    json['num_list_users'] as int?,
   );
 }

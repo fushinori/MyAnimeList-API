@@ -8,9 +8,8 @@ part of 'mangalist_response.dart';
 
 MangaListResponse _$MangaListResponseFromJson(Map<String, dynamic> json) {
   return MangaListResponse(
-    (json['data'] as List)
-        ?.map((e) =>
-            e == null ? null : MangaList.fromJson(e as Map<String, dynamic>))
-        ?.toList(),
+    (json['data'] as List?)
+        ?.map((e) => MangaList.fromJson(e as Map<String, dynamic>))
+        .toList(),
   );
 }

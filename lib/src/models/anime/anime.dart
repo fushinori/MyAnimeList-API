@@ -35,48 +35,48 @@ part 'anime.g.dart';
 /// Complete anime object with all fields.
 @JsonSerializable(createToJson: false, fieldRename: FieldRename.snake)
 class Anime {
-  final int id;
-  final String title;
-  final MainPicture mainPicture;
-  final AlternativeTitles alternativeTitles;
+  final int? id;
+  final String? title;
+  final MainPicture? mainPicture;
+  final AlternativeTitles? alternativeTitles;
 
   @JsonKey(fromJson: stringToDate)
-  final DateTime startDate;
+  final DateTime? startDate;
 
   @JsonKey(fromJson: stringToDate)
-  final DateTime endDate;
+  final DateTime? endDate;
 
-  final String synopsis;
-  final double mean;
-  final int rank;
-  final int popularity;
-  final int numListUsers;
-  final int numScoringUsers;
-  final String nsfw;
-
-  @JsonKey(fromJson: stringToDate)
-  final DateTime createdAt;
+  final String? synopsis;
+  final double? mean;
+  final int? rank;
+  final int? popularity;
+  final int? numListUsers;
+  final int? numScoringUsers;
+  final String? nsfw;
 
   @JsonKey(fromJson: stringToDate)
-  final DateTime updatedAt;
+  final DateTime? createdAt;
 
-  final String mediaType;
-  final String status;
-  final List<Genre> genres;
-  final MyAnimeListStatus myListStatus;
-  final int numEpisodes;
-  final StartSeason startSeason;
-  final Broadcast broadcast;
-  final String source;
-  final int averageEpisodeDuration;
-  final String rating;
-  final List<Picture> pictures;
-  final String background;
-  final List<Relation> relatedAnime;
-  final List<Relation> relatedManga;
-  final List<Recommendation> recommendations;
-  final List<Studio> studios;
-  final Statistics statistics;
+  @JsonKey(fromJson: stringToDate)
+  final DateTime? updatedAt;
+
+  final String? mediaType;
+  final String? status;
+  final List<Genre>? genres;
+  final MyAnimeListStatus? myListStatus;
+  final int? numEpisodes;
+  final StartSeason? startSeason;
+  final Broadcast? broadcast;
+  final String? source;
+  final int? averageEpisodeDuration;
+  final String? rating;
+  final List<Picture>? pictures;
+  final String? background;
+  final List<Relation>? relatedAnime;
+  final List<Relation>? relatedManga;
+  final List<Recommendation>? recommendations;
+  final List<Studio>? studios;
+  final Statistics? statistics;
 
   Anime(
       this.id,

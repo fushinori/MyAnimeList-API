@@ -8,7 +8,7 @@ part of 'studio.dart';
 
 Studio _$StudioFromJson(Map<String, dynamic> json) {
   return Studio(
-    json['id'] as int,
-    json['name'] as String,
+    json['id'] as int?,
+    json['name'] as String?,
   );
 }

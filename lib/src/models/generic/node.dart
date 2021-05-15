@@ -29,9 +29,9 @@ part 'node.g.dart';
 /// Use [id] to get the full [Anime] or [Manga] object, if necessary.
 @JsonSerializable(createToJson: false, fieldRename: FieldRename.snake)
 class Node {
-  final int id;
-  final String title;
-  final MainPicture mainPicture;
+  final int? id;
+  final String? title;
+  final MainPicture? mainPicture;
 
   Node(this.id, this.title, this.mainPicture);
 

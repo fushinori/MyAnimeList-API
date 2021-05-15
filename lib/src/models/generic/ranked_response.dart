@@ -23,7 +23,7 @@ part 'ranked_response.g.dart';
 
 @JsonSerializable(createToJson: false)
 class RankedResponse {
-  final List<RankedNode> data;
+  final List<RankedNode>? data;
 
   RankedResponse(this.data);
 

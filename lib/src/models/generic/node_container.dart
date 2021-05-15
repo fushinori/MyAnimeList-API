@@ -23,7 +23,7 @@ part 'node_container.g.dart';
 
 @JsonSerializable(createToJson: false)
 class NodeContainer {
-  final Node node;
+  final Node? node;
 
   NodeContainer(this.node);
 

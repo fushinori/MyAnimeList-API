@@ -24,8 +24,8 @@ part 'author.g.dart';
 /// Author of the manga.
 @JsonSerializable(createToJson: false)
 class Author {
-  final AuthorNode node;
-  final String role;
+  final AuthorNode? node;
+  final String? role;
 
   Author(this.node, this.role);
 
