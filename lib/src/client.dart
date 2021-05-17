@@ -136,9 +136,9 @@ class Client {
     "favorite"
   };
 
-  Client(this.accessToken) {
+  Client(this.accessToken, {httpClient}) {
     _headers = {'Authorization': 'Bearer $accessToken'};
-    _handler = RequestHandler(baseUrl, _headers);
+    _handler = RequestHandler(baseUrl, _headers, client: httpClient);
   }
 
   /// Returns list of [Node] objects based on [keyword].

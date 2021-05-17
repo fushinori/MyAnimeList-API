@@ -27,8 +27,8 @@ class RequestHandler {
   String baseUrl;
   Map<String, String>? headers;
 
-  RequestHandler(this.baseUrl, this.headers) {
-    _client = http.Client();
+  RequestHandler(this.baseUrl, this.headers, {http.Client? client}) {
+    _client = client ?? http.Client();
   }
 
   Future<dynamic> call(

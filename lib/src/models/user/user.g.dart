@@ -10,6 +10,7 @@ User _$UserFromJson(Map<String, dynamic> json) {
   return User(
     json['id'] as int?,
     json['name'] as String?,
+    json['picture'] as String?,
     json['location'] as String?,
     stringToDate(json['joined_at'] as String?),
     json['anime_statistics'] == null
